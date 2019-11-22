@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: fl-networking-tools
+Version: 0.0.1
+Summary: A set of tools for use with the FutureLearn Programming with networks course from Raspberry Pi
+Home-page: UNKNOWN
+Author: The Raspberry PI Foundation
+Author-email: mac@raspberrypi.org
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: Networking,Education,FutureLearn,Binary,ImageViewer
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python :: 3
+Requires: guizero
+Requires: Pillow
