@@ -1,0 +1,8 @@
+site_name: FL Networking Tools
+nav:
+  - Home: index.md
+  - Install: install.md
+  - Files:
+    - 'Binary Messaging': 'binary_messaging.md'
+    - 'Image Viewer': 'image_viewer.md'
+
