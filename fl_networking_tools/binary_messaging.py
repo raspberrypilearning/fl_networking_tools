@@ -1,20 +1,24 @@
-import pickle
-import socket
+import pickle # To serialise the data
+import socket # To send and receive data
 
-HEADER_SIZE = 4
+HEADER_SIZE = 4 # The amount of bytes used to send the size - a maximum message size of 4,294,967,295 bytes can be represented with 32 bits (4 bytes)
 
+# The function used to send binary to the socket
 def send_binary(sending_socket, data):
-    pickled_data = pickle.dumps(data)
-    size = len(pickled_data)
+    pickled_data = pickle.dumps(data) # pickle the data - serialise it
+    size = len(pickled_data) # Calculate the size of the pickled message
+	# Send it to the socket - using + on bytes combines them one after the other.
     sending_socket.send(size.to_bytes(HEADER_SIZE, byteorder="big") + pickled_data)
 
 def get_binary(receiving_socket):
-
+	
+	# A list to hold any messages from the buffer
     messages = []
-
+	
+	# Create the buffer, a binary variable
     buffer = b""
     socket_open = True
-    
+    # While the socket has data in it - keep repeating
     while socket_open:
 
         # yield any messages

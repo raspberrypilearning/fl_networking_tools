@@ -1,8 +1,0 @@
-setup.py
-fl_networking_tools/__init__.py
-fl_networking_tools/binary_messaging.py
-fl_networking_tools/image_viewer.py
-fl_networking_tools.egg-info/PKG-INFO
-fl_networking_tools.egg-info/SOURCES.txt
-fl_networking_tools.egg-info/dependency_links.txt
-fl_networking_tools.egg-info/top_level.txt
