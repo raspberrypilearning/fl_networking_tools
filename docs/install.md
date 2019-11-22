@@ -4,6 +4,8 @@ There are a number of methods you can use to install the Networking Tools.
 
 Depending on the permissions you have on your computer, some methods may not work for you.
 
+Note: you will need to use a computer with Python installed; it is not possible to complete the programming tasks on a tablet or using online integrated development environments (IDEs), e.g. Trinket or repl.it.
+
 ## Install using pip
 
 You can use the command prompt and `pip` to install fl_networking_tools for:
@@ -20,6 +22,7 @@ You can use the command prompt and `pip` to install fl_networking_tools for:
 
     ```
     pip3 install fl_networking_tools
+    ```
 
 If you experience problems, have a look at this guide to [_Using pip on Windows_](https://projects.raspberrypi.org/en/projects/using-pip-on-windows).
 
@@ -50,6 +53,27 @@ If you experience problems, have a look at this guide to [_Using pip on Windows_
     ```
 
     ![run pip install guizero](images/pi_pip_install.gif)
+
+## Install for Mu IDE
+
+**Note** - if you are using the **Windows** or **macOS** versions of Mu you will need to update Mu to the [latest alpha release](https://codewith.mu/en/download) and use the Mu Administration, Third Party Packages setup to install fl_networking_tools.
+
+On **Windows** or **macOS**:
+
+* Download and install the [latest alpha release](https://codewith.mu/en/download) of Mu
+
+Or
+
+* Update Mu to the [latest alpha release](https://codewith.mu/en/download)
+
+Once you have the latest alpha release of Mu installed on your computer:   
+1. Open Mu   
+2. Click on the Administration **cog** in the bottom right-hand corner   
+3. Select the **Third Party Packages** tab   
+4. Enter `fl_networking_tools` as the name of the package you wish to install   
+5. Click **OK**   
+
+Note: you will need to use a computer with Python installed; it is not possible to complete the programming tasks on a tablet or using online integrated development environments (IDEs), e.g. Trinket or repl.it.
 
 ## Downloading the raw files
 

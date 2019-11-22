@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Install - FL Networking Tools</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">FL Networking Tools</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="./">Install</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Files <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../binary_messaging/">Binary Messaging</a>
+</li>
+                                    
+<li >
+    <a href="../image_viewer/">Image Viewer</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="disabled">
+                                <a rel="next" >
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../binary_messaging/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#installation">Installation</a></li>
+        <li class="main "><a href="#install-using-pip">Install using pip</a></li>
+            <li><a href="#windows">Windows</a></li>
+            <li><a href="#macos">macOS</a></li>
+            <li><a href="#raspberry-pi">Raspberry Pi/</a></li>
+        <li class="main "><a href="#install-for-mu-ide">Install for Mu IDE</a></li>
+        <li class="main "><a href="#downloading-the-raw-files">Downloading the raw files</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="installation">Installation</h2>
+<p>There are a number of methods you can use to install the Networking Tools. </p>
+<p>Depending on the permissions you have on your computer, some methods may not work for you.</p>
+<h2 id="install-using-pip">Install using pip</h2>
+<p>You can use the command prompt and <code>pip</code> to install fl_networking_tools for:</p>
+<ul>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#macos">macOS</a></li>
+<li><a href="#raspberry-pi">Raspberry Pi</a></li>
+</ul>
+<h3 id="windows">Windows</h3>
+<ol>
+<li>
+<p>Open a command prompt by clicking <strong>Start</strong> &gt; <strong>Windows System</strong> &gt; <strong>Command Prompt</strong>, or by typing 'command' into the start menu's search bar.</p>
+</li>
+<li>
+<p>Type this command and press enter:</p>
+<p><code>pip3 install fl_networking_tools</code></p>
+</li>
+</ol>
+<p>If you experience problems, have a look at this guide to <a href="https://projects.raspberrypi.org/en/projects/using-pip-on-windows"><em>Using pip on Windows</em></a>.</p>
+<h3 id="macos">macOS</h3>
+<ol>
+<li>
+<p>Open a terminal window by clicking <strong>Applications</strong> &gt; <strong>Utilities</strong> &gt; <strong>Terminal</strong>, or by typing 'terminal' into the desktop's search bar.</p>
+<p><img alt="Mac terminal" src="../images/mac_terminal.png" /></p>
+</li>
+<li>
+<p>Type this command and press enter:</p>
+<p><code>pip3 install fl_networking_tools</code></p>
+<p><img alt="mac pip install" src="../images/mac_pip_install.gif" /></p>
+</li>
+</ol>
+<h3 id="raspberry-pi">Raspberry Pi/</h3>
+<ol>
+<li>
+<p>Open a terminal window by clicking <strong>Menu</strong> &gt; <strong>Accessories</strong> &gt; <strong>Terminal</strong>.</p>
+<p><img alt="pi terminal" src="../images/pi-terminal.png" /></p>
+</li>
+<li>
+<p>Type this command and press enter:</p>
+<p><code>sudo pip3 install fl_networking_tools</code></p>
+<p><img alt="run pip install guizero" src="../images/pi_pip_install.gif" /></p>
+</li>
+</ol>
+<h2 id="install-for-mu-ide">Install for Mu IDE</h2>
+<p><strong>Note</strong> - if you are using the <strong>Windows</strong> or <strong>macOS</strong> versions of Mu you will need to update Mu to the <a href="https://codewith.mu/en/download">latest alpha release</a> and use the Mu Administration, Third Party Packages setup to install fl_networking_tools.</p>
+<p>On <strong>Windows</strong> or <strong>macOS</strong>:</p>
+<ul>
+<li>Download and install the <a href="https://codewith.mu/en/download">latest alpha release</a> of Mu</li>
+</ul>
+<p>Or</p>
+<ul>
+<li>Update Mu to the <a href="https://codewith.mu/en/download">latest alpha release</a></li>
+</ul>
+<p>Once you have the latest alpha release of Mu installed on your computer: <br />
+1. Open Mu <br />
+2. Click on the Administration <strong>cog</strong> in the bottom right-hand corner <br />
+3. Select the <strong>Third Party Packages</strong> tab <br />
+4. Enter <code>fl_networking_tools</code> as the name of the package you wish to install <br />
+5. Click <strong>OK</strong>   </p>
+<p>Note: you will need to use a computer with Python installed; it is not possible to complete the programming tasks on a tablet or using online integrated development environments (IDEs), e.g. Trinket or repl.it.</p>
+<h2 id="downloading-the-raw-files">Downloading the raw files</h2>
+<ol>
+<li>
+<p>Go to the <a href="https://github.com/m-bowley/fl_networking_tools">project repository</a> on GitHub.</p>
+</li>
+<li>
+<p>Click the green "Clone or download" button and then "Download ZIP"</p>
+<p><img alt="Download the zip" src="../images/download-zip.png" /></p>
+</li>
+<li>
+<p>Open the zip file</p>
+</li>
+<li>
+<p>Open the <code>fl_networking_tools-master</code> folder, then copy the <code>fl_networking_tools</code> folder and paste it into your home directory</p>
+</li>
+<li>
+<p>That's it! When you write your Python code, make sure you save it into your home directory.</p>
+</li>
+</ol></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
