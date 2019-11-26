@@ -1,4 +1,5 @@
 site_name: FL Networking Tools
+theme: mkdocs
 nav:
   - Install: index.md
   - Files:
