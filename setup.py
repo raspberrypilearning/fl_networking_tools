@@ -18,7 +18,8 @@ __keywords__ = [
 	"Binary",
 	"ImageViewer",
 ]
-__requires__ = ["guizero", "Pillow"]
+__requires__ = ["Pillow"]
+__python_requires__ = ">=3"
 
 setup(
 	name = __project__,
@@ -30,4 +31,5 @@ setup(
 	classifiers = __classifiers__,
 	keywords = __keywords__,
 	requires = __requires__,
+	python_requires = __python_requires__,
 )
