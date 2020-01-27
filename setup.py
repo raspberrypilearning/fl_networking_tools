@@ -1,7 +1,7 @@
 from setuptools import setup
 
 __project__ = "fl_networking_tools"
-__version__ = "0.0.2"
+__version__ = "0.0.4"
 __description__ = "A set of tools for use with the FutureLearn Programming with networks course from Raspberry Pi"
 __packages__ = ["fl_networking_tools"]
 __author__ = "The Raspberry PI Foundation"
@@ -18,7 +18,7 @@ __keywords__ = [
 	"Binary",
 	"ImageViewer",
 ]
-__requires__ = ["Pillow"]
+__requires__ = ["pillow"]
 __python_requires__ = ">=3"
 
 __long_description__ = """# FL Networking tools
@@ -54,7 +54,7 @@ setup(
 	author_email = __author_email__,
 	classifiers = __classifiers__,
 	keywords = __keywords__,
-	requires = __requires__,
+	install_requires = __requires__,
 	python_requires = __python_requires__,
 	long_description = __long_description__,
 )
