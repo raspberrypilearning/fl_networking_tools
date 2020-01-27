@@ -14,48 +14,48 @@ def get_binary(receiving_socket):
 	
 	# A list to hold any messages from the buffer
     messages = []
-	
+
 	# Create the buffer, a binary variable
     buffer = b""
     socket_open = True
-    # While the socket has data in it - keep repeating
+	# While the socket has data in it - keep repeating
     while socket_open:
 
-        # yield any messages
+        # Yield any messages
         for message in messages:
             yield message
         messages = []
 
-        # read any data from the socket
+        # Read any data from the socket
         data = receiving_socket.recv(1024)
 
-        # if zero data is returned the socket is closed
+        # If zero data is returned the socket is closed
         if not data:
             socket_open = False
 
-        # add the data to the buffer
+        # Add the data to the buffer
         buffer += data
         #print(buffer)
         
         processing_buffer = True
         while processing_buffer:
         
-            # have we got a header
+            # Have we got a header
             if len(buffer) >= HEADER_SIZE:
-                # get the header
+                # Get the header
                 size = int.from_bytes(buffer[0:HEADER_SIZE], byteorder="big")
 
-                # have we got a complete message
+                # Have we got a complete message
                 if len(buffer) >= HEADER_SIZE + size:
-                    # append the message to the list
+                    # Append the message to the list
                     unpickled_message = pickle.loads(buffer[HEADER_SIZE:HEADER_SIZE + size])
                     messages.append(unpickled_message)
-                    # strip the message from the buffer
+                    # Strip the message from the buffer
                     buffer = buffer[HEADER_SIZE + size:]
                 else:
-                    # there isnt enough data for this message
+                    # There isnt enough data for this message
                     processing_buffer = False
 
             else:
-                # there isnt enough data for a header
+                # There isnt enough data for a header
                 processing_buffer = False
