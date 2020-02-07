@@ -2,29 +2,24 @@ from tkinter import Tk, Toplevel, Canvas, PhotoImage, Label, StringVar, BOTH, YE
 from threading import Thread, Event
 from queue import Queue, Empty
 
-class ImageViewer(Thread):
+# the number of screen updates to do before forcing a .update()
+UPDATE_THRESHOLD = 50
+
+class ImageViewer():
     def __init__(self, width=640, height=480, bg="#000000", fg="#888888"):
-        super(ImageViewer, self).__init__()
         self._width = width
         self._height = height
         self._bg = bg
         self._fg = fg
         self._update_job = None
-        self.open()
+        self._get_data_thread = None
 
-    def open(self):
-        # reset the events and queues
+        # set the events and queues
         self._running = Event()
         self._update_queue = Queue()
         self._pixels = {}
 
-        # start up the viewer
-        self.start()
-
-        # wait for it to have started
-        self._running.wait()
-
-    def close(self):
+    def _close(self):
         if self._update_job is not None:
             self._root.after_cancel(self._update_job)
             self._update_job = None
@@ -33,15 +28,19 @@ class ImageViewer(Thread):
         self._root.quit()
         self._root.destroy()
         
-    # the display is updated in a seperate thread from a Q,
-    # this is so the calling application doesnt have to wait for the GUI to be updated before moving on
+    # the display is updated in a separate thread from a Q,
+    # this is so the calling application doesn't have to wait for the GUI to be updated before moving on
     def _update_display(self):
+        updates = 0
         self._update_job = None
         # take any pixels which are on the Q off the Q and display them
         try:
             while self._running.is_set():
                 # is there an update on the Q
                 update_data = self._update_queue.get_nowait()
+
+                # keep a track of the updates
+                updates += 1
                 
                 # put a single pixel on the image
                 if update_data[0] == "pixel":
@@ -54,12 +53,25 @@ class ImageViewer(Thread):
                 elif update_data[0] == "text":
                     self._text_var.set(str(update_data[1]))
                 
-                # update the window
-                self._root.update()
+                # has the update threshold been reached, if so update the window
+                if updates > UPDATE_THRESHOLD:
+                    self._root.update()
+                    updates = 0
 
         except Empty:
             # nothing left on the Q, wait and then try again
             self._update_job = self._root.after(250, self._update_display)
+
+        # update the window, if there is nothing left on the Q
+        if updates > 0:
+            self._root.update()
+
+    def _get_data(self):
+        self._get_data_job = None
+        if self._running.is_set():
+            if self._get_data_func is not None:
+                self._get_data_func()
+            self._get_data_job = self._root.after(1, self._get_data)
 
     # put a single pixel on the image
     def put_pixel(self, pos, color):
@@ -74,12 +86,12 @@ class ImageViewer(Thread):
         else:
             return None
 
-    def run(self):
+    def start(self, get_data_func=None):
         # setup user interface
         self._root = Tk()
         self._root.title("Image Viewer")
         self._root.geometry("{}x{}".format(self._width, self._height))
-        self._root.protocol("WM_DELETE_WINDOW", self.close)
+        self._root.protocol("WM_DELETE_WINDOW", self._close)
 
         # create the title
         self._text = ""
@@ -98,6 +110,12 @@ class ImageViewer(Thread):
         # set the _running status
         self._running.set()
 
+        # the function to get the data is run in a separate thread
+        # this is so the udp data can be read from the socket as quickly as possible
+        if get_data_func is not None:
+            self._get_data_thread = Thread(target=get_data_func)
+            self._get_data_thread.start()
+            
         # start up the app
         self._root.mainloop()
 
@@ -119,9 +137,13 @@ class ImageViewer(Thread):
 if __name__ == "__main__":
     from random import randint
     viewer = ImageViewer()
-    viewer.text = "Testing ImageViewer. You should see dots"
-    for pixel_number in range(500):
-        viewer.text = "Testing ImageViewer. You should {} dots".format(pixel_number + 1)
-        pos = (randint(1,640), randint(1,480))
-        color = (randint(0,255), randint(0,255), randint(0,255))
-        viewer.put_pixel(pos, color)
+    
+    def random_pixels():
+        viewer.text = "Testing ImageViewer. You should see dots"
+        for pixel_number in range(500):
+            viewer.text = "Testing ImageViewer. You should {} dots".format(pixel_number + 1)
+            pos = (randint(1,640), randint(1,480))
+            color = (randint(0,255), randint(0,255), randint(0,255))
+            viewer.put_pixel(pos, color)
+
+    viewer.start(random_pixels)

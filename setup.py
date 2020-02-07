@@ -1,7 +1,7 @@
 from setuptools import setup
 
 __project__ = "fl_networking_tools"
-__version__ = "0.0.4"
+__version__ = "0.0.6"
 __description__ = "A set of tools for use with the FutureLearn Programming with networks course from Raspberry Pi"
 __packages__ = ["fl_networking_tools"]
 __author__ = "The Raspberry PI Foundation"
